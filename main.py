@@ -1,3 +1,4 @@
+import os
 import discord
 from discord.ext import commands
 import random
@@ -330,7 +331,7 @@ async def deletequiz(ctx):
 
     except asyncio.TimeoutError:
         await ctx.send("⏳ You took too long to respond. Deletion canceled.")
-
+TOKEN = os.getenv("BOT_TOKEN")  
 
 # Bot login
-bot.run("MTM0Nzg5Mzc4OTc4NzY4NDk4Nw.GhG188.qmXxCb0cKKYlhKCJJpGvzD-p89IkuKKVmNflcA")
+bot.run(TOKEN)
