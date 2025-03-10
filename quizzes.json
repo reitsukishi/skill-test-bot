@@ -1,0 +1,127 @@
+{
+    "python": {
+        "variables": [
+            {
+                "question": "What is the correct keyword to define a variable in Python?",
+                "options": [
+                    "var",
+                    "let",
+                    "=",
+                    "No keyword needed"
+                ],
+                "answer": "No keyword needed",
+                "type": "mcq"
+            },
+            {
+                "question": "What symbol is used for comments in Python?",
+                "answer": "#",
+                "type": "one_word"
+            },
+            {
+                "question": "Is Python case-sensitive?",
+                "answer": "True",
+                "type": "true_false"
+            }
+        ],
+        "strings": [
+            {
+                "question": "Which function is used to get the length of a string?",
+                "options": [
+                    "length()",
+                    "size()",
+                    "len()",
+                    "strlen()"
+                ],
+                "answer": "len()",
+                "type": "mcq"
+            },
+            {
+                "question": "Which operator is used to concatenate strings in Python?",
+                "options": [
+                    "+",
+                    "&",
+                    "*",
+                    "%"
+                ],
+                "answer": "+",
+                "type": "mcq"
+            }
+        ]
+    },
+    "javascript": {
+        "variables": [
+            {
+                "question": "which keyword is used to assign a variable ?",
+                "type": "mcq",
+                "options": [
+                    "var",
+                    "let",
+                    "const",
+                    "all of them"
+                ],
+                "answer": "all of them"
+            }
+        ]
+    },
+    "maths": {
+        "arithmetic": [
+            {
+                "question": "15 + 8",
+                "type": "one_word",
+                "answer": "23"
+            },
+            {
+                "question": "12 \u00d7 7",
+                "type": "one_word",
+                "answer": "84"
+            },
+            {
+                "question": "9 \u00d7 6",
+                "type": "one_word",
+                "answer": "54"
+            },
+            {
+                "question": "14-9",
+                "type": "one_word",
+                "answer": "5"
+            },
+            {
+                "question": "square of 5",
+                "type": "one_word",
+                "answer": "25"
+            },
+            {
+                "question": "What is the cube of 3?",
+                "type": "one_word",
+                "answer": "27"
+            },
+            {
+                "question": "Which number is a multiple of both 3 and 4?",
+                "type": "mcq",
+                "options": [
+                    "\"9\"",
+                    "\"12\"",
+                    "\"15\"",
+                    "\"18\""
+                ],
+                "answer": "12"
+            },
+            {
+                "question": "True or False: 7 \u00d7 8 = 54",
+                "type": "true_false",
+                "answer": "False"
+            },
+            {
+                "question": "Which is a prime number?",
+                "type": "mcq",
+                "options": [
+                    "\"22\"",
+                    "\"25\"",
+                    "\"29\"",
+                    "\"30\""
+                ],
+                "answer": "\"29\""
+            }
+        ]
+    }
+}
