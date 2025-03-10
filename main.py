@@ -5,7 +5,7 @@ import random
 import json
 import asyncio
 
-TOKEN = os.getenv("bot_token")  
+TOKEN = os.getenv("BOT_TOKEN")  
 LEADERBOARD_FILE = "leaderboard.json"
 
 
