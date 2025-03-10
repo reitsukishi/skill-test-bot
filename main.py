@@ -334,11 +334,6 @@ async def deletequiz(ctx):
     except asyncio.TimeoutError:
         await ctx.send("⏳ You took too long to respond. Deletion canceled.")
 
-
-
-# Bot login
-bot.run(TOKEN)
-
 app = Flask(__name__)
 
 @app.route('/')
@@ -348,4 +343,9 @@ def home():
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8080))  # Render assigns a random port
     app.run(host="0.0.0.0", port=port)
+
+# Bot login
+bot.run(TOKEN)
+
+
 
