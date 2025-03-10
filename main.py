@@ -4,6 +4,17 @@ from discord.ext import commands
 import random
 import json
 import asyncio
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Bot is running!"
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8080))  # Render assigns a random port
+    app.run(host="0.0.0.0", port=port)
 
 TOKEN = os.getenv("BOT_TOKEN")  
 LEADERBOARD_FILE = "leaderboard.json"
