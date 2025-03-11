@@ -86,77 +86,81 @@ async def on_ready():
 
 ### 📌 COMMAND: Start Quiz
     @bot.command()
-    async def start(ctx, category: str, subcategory: str):
-        """Starts a quiz in a given category and subcategory."""
-        category = category.lower()
-        subcategory = subcategory.lower()
+async def start(ctx, category: str, subcategory: str):
+    """Starts a quiz in a given category and subcategory."""
+    category = category.lower()
+    subcategory = subcategory.lower()
 
-        # Load attempts
-        quiz_attempts = load_quiz_attempts()
-        user_id = str(ctx.author.id)
+    # Load attempts
+    quiz_attempts = load_quiz_attempts()
+    user_id = str(ctx.author.id)
 
-        # Check if the user has already attempted this quiz
-        if user_id in quiz_attempts and category in quiz_attempts[user_id] and subcategory in quiz_attempts[user_id][category]:
-            await ctx.send("❌ You have already attempted this quiz! You cannot take it again.")
-            return
+    # Check if the user has already attempted this quiz
+    if user_id in quiz_attempts and category in quiz_attempts[user_id] and subcategory in quiz_attempts[user_id][category]:
+        await ctx.send("❌ You have already attempted this quiz! You cannot take it again.")
+        return
 
-        if category not in quizzes or subcategory not in quizzes[category]:
-            await ctx.send(
-                f"Invalid category or subcategory! Use `!categories` to see available options."
+    if category not in quizzes or subcategory not in quizzes[category]:
+        await ctx.send(
+            f"Invalid category or subcategory! Use `!categories` to see available options."
+        )
+        return
+
+    questions = quizzes[category][subcategory]
+    
+    # Limit to a maximum of 10 random questions
+    total_questions = min(len(questions), 10)
+    selected_questions = random.sample(questions, total_questions)
+    score = 0
+
+    for q in selected_questions:
+        if q["type"] == "mcq":
+            options_text = "\n".join(
+                [f"{i+1}. {opt}" for i, opt in enumerate(q["options"])]
             )
-            return
+            await ctx.send(f"**{q['question']}**\n{options_text}")
 
-        questions = quizzes[category][subcategory]
-        score = 0
+        elif q["type"] == "one_word":
+            await ctx.send(f"**{q['question']}** (One-word answer)")
 
-        for q in questions:
+        elif q["type"] == "true_false":
+            await ctx.send(f"**{q['question']}** (True/False)")
+
+        try:
+            msg = await bot.wait_for("message", timeout=15.0, check=lambda m: m.author == ctx.author)
+
             if q["type"] == "mcq":
-                options_text = "\n".join(
-                    [f"{i+1}. {opt}" for i, opt in enumerate(q["options"])])
-                await ctx.send(f"**{q['question']}**\n{options_text}")
+                selected_option = q["options"][int(msg.content) - 1]
+                if selected_option == q["answer"]:
+                    score += 1
+            else:
+                if msg.content.lower() == q["answer"].lower():
+                    score += 1
 
-            elif q["type"] == "one_word":
-                await ctx.send(f"**{q['question']}** (One-word answer)")
+        except:
+            await ctx.send("⏳ Time's up! Moving to the next question.")
 
-            elif q["type"] == "true_false":
-                await ctx.send(f"**{q['question']}** (True/False)")
+    # Load the existing leaderboard
+    leaderboard = load_leaderboard()
 
-            try:
-                msg = await bot.wait_for("message",
-                                         timeout=15.0,
-                                         check=lambda m: m.author == ctx.author)
+    # Update user's score
+    username = str(ctx.author)  # Using username instead of ID for readability
+    leaderboard[username] = leaderboard.get(username, 0) + score
 
-                if q["type"] == "mcq":
-                    selected_option = q["options"][int(msg.content) - 1]
-                    if selected_option == q["answer"]:
-                        score += 1
-                else:
-                    if msg.content.lower() == q["answer"].lower():
-                        score += 1
+    # Save updated leaderboard
+    save_leaderboard(leaderboard)
 
-            except:
-                await ctx.send("⏳ Time's up! Moving to the next question.")
+    await ctx.send(f"✅ Quiz finished! Your score: {score}")
 
-        # Load the existing leaderboard
-        leaderboard = load_leaderboard()
+    # Mark the quiz as attempted for this user
+    if user_id not in quiz_attempts:
+        quiz_attempts[user_id] = {}
+    if category not in quiz_attempts[user_id]:
+        quiz_attempts[user_id][category] = {}
 
-        # Update user's score
-        username = str(ctx.author)  # Using username instead of ID for readability
-        leaderboard[username] = leaderboard.get(username, 0) + score
+    quiz_attempts[user_id][category][subcategory] = True
+    save_quiz_attempts(quiz_attempts)
 
-        # Save updated leaderboard
-        save_leaderboard(leaderboard)
-
-        await ctx.send(f"✅ Quiz finished! Your score: {score}")
-
-        # Mark the quiz as attempted for this user
-        if user_id not in quiz_attempts:
-            quiz_attempts[user_id] = {}
-        if category not in quiz_attempts[user_id]:
-            quiz_attempts[user_id][category] = {}
-
-        quiz_attempts[user_id][category][subcategory] = True
-        save_quiz_attempts(quiz_attempts)
 
 ### 📌 COMMAND: Show Available Categories
 @bot.command()
