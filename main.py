@@ -5,6 +5,7 @@ import random
 import json
 import asyncio
 from flask import Flask
+from threading import Thread
 
 
 TOKEN = os.getenv("BOT_TOKEN")  
@@ -338,13 +339,17 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Bot is running!"
+    return "I'm alive!"
 
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 8080))  # Render assigns a random port
-    app.run(host="0.0.0.0", port=port)
+def run():
+    app.run(host='0.0.0.0', port=8080)
+
+def keep_alive():
+    t = Thread(target=run)
+    t.start()
 
 # Bot login
+keep_alive()
 bot.run(TOKEN)
 
 
