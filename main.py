@@ -85,7 +85,7 @@ async def on_ready():
     print(f"✅ Bot is ready! Loaded {len(quizzes)} categories from JSON.")
 
 ### 📌 COMMAND: Start Quiz
-    @bot.command()
+@bot.command()
 async def start(ctx, category: str, subcategory: str):
     """Starts a quiz in a given category and subcategory."""
     category = category.lower()
