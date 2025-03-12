@@ -163,6 +163,49 @@ async def start(ctx, category: str, subcategory: str):
 
 
 ### 📌 COMMAND: Show Available Categories
+
+@bot.command()
+async def reattempt(ctx, category: str, subcategory: str):
+    """Allows users to re-attempt a quiz without affecting their recorded score."""
+    category = category.lower()
+    subcategory = subcategory.lower()
+
+    if category not in quizzes or subcategory not in quizzes[category]:
+        await ctx.send("Invalid category or subcategory! Use `!categories` to see available options.")
+        return
+
+    questions = quizzes[category][subcategory]
+    total_questions = min(len(questions), 10)
+    selected_questions = random.sample(questions, total_questions)
+    score = 0
+
+    for q in selected_questions:
+        if q["type"] == "mcq":
+            options_text = "\n".join([f"{i+1}. {opt}" for i, opt in enumerate(q["options"])] )
+            await ctx.send(f"**{q['question']}**\n{options_text}")
+        
+        elif q["type"] == "one_word":
+            await ctx.send(f"**{q['question']}** (One-word answer)")
+
+        elif q["type"] == "true_false":
+            await ctx.send(f"**{q['question']}** (True/False)")
+
+        try:
+            msg = await bot.wait_for("message", timeout=15.0, check=lambda m: m.author == ctx.author)
+
+            if q["type"] == "mcq":
+                selected_option = q["options"][int(msg.content) - 1]
+                if selected_option == q["answer"]:
+                    score += 1
+            else:
+                if msg.content.lower() == q["answer"].lower():
+                    score += 1
+        except:
+            await ctx.send("⏳ Time's up! Moving to the next question.")
+
+    await ctx.send(f"✅ Re-attempt finished! Your score this time: {score} (This does not affect your recorded score)")
+
+
 @bot.command()
 async def lists(ctx):
     """Lists all available categories and subcategories."""
