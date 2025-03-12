@@ -69,7 +69,7 @@ intents.guilds = True
 intents.message_content = True  # Important for reading messages
 
 # Bot setup
-bot = commands.Bot(command_prefix="!", intents=intents)
+bot = commands.Bot(command_prefix="$", intents=intents)
 
 # Sample quiz data (Can be expanded)
 quizzes = {}
