@@ -136,7 +136,7 @@ async def start(ctx, category: str, subcategory: str):
             else:
                 if msg.content.lower() == q["answer"].lower():
                     score += 1
-                elif msg.content.lower() == "end":
+                elif msg.content.lower() == "exit":
                     break
 
         except:
