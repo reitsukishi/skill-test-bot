@@ -66,6 +66,36 @@
     
     "maths": {
     "arithmetic": [
+         {
+        "question": "What is 19 * 7?",
+        "answer": "133",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 11 * 19?",
+        "answer": "209",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 8 * 17?",
+        "answer": "136",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 2 * 7?",
+        "answer": "14",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 20 * 13?",
+        "answer": "260",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 12 * 13?",
+        "answer": "156",
+        "type": "one_word"
+    },
       {
         "question": "683 + 138",
         "type": "one_word",
@@ -96,6 +126,7 @@
         "type": "one_word",
         "answer": "1160"
       },
+        
       {
         "question": "844 + 855",
         "type": "one_word",
@@ -896,6 +927,31 @@
         "type": "one_word",
         "answer": "1187"
       },
+    {
+        "question": "What is 17 * 17?",
+        "answer": "289",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 11 * 4?",
+        "answer": "44",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 9 * 18?",
+        "answer": "162",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 10 * 3?",
+        "answer": "30",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 12 * 14?",
+        "answer": "168",
+        "type": "one_word"
+    },
       {
         "question": "613 + 821",
         "type": "one_word",
@@ -1996,6 +2052,31 @@
         "type": "one_word",
         "answer": "770"
       },
+         {
+        "question": "What is 12 * 5?",
+        "answer": "60",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 3 * 4?",
+        "answer": "12",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 3 * 9?",
+        "answer": "27",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 20 * 4?",
+        "answer": "80",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 9 * 20?",
+        "answer": "180",
+        "type": "one_word"
+    },
       {
         "question": "767 + 928",
         "type": "one_word",
@@ -2746,6 +2827,41 @@
         "type": "one_word",
         "answer": "1044"
       },
+        {
+        "question": "What is 18 * 15?",
+        "answer": "270",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 15 * 2?",
+        "answer": "30",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 16 * 6?",
+        "answer": "96",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 3 * 9?",
+        "answer": "27",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 2 * 9?",
+        "answer": "18",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 18 * 2?",
+        "answer": "36",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 8 * 6?",
+        "answer": "48",
+        "type": "one_word"
+    },
       {
         "question": "153 + 497",
         "type": "one_word",
@@ -3531,6 +3647,116 @@
         "type": "one_word",
         "answer": "1214"
       },
+         {
+        "question": "What is 10 * 15?",
+        "answer": "150",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 7 * 11?",
+        "answer": "77",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 16 * 20?",
+        "answer": "320",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 10 * 4?",
+        "answer": "40",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 8 * 17?",
+        "answer": "136",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 13 * 7?",
+        "answer": "91",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 15 * 14?",
+        "answer": "210",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 3 * 8?",
+        "answer": "24",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 10 * 16?",
+        "answer": "160",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 13 * 7?",
+        "answer": "91",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 19 * 17?",
+        "answer": "323",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 19 * 2?",
+        "answer": "38",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 19 * 6?",
+        "answer": "114",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 15 * 2?",
+        "answer": "30",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 9 * 12?",
+        "answer": "108",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 7 * 4?",
+        "answer": "28",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 18 * 3?",
+        "answer": "54",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 15 * 10?",
+        "answer": "150",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 9 * 4?",
+        "answer": "36",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 13 * 17?",
+        "answer": "221",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 17 * 15?",
+        "answer": "255",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 12 * 8?",
+        "answer": "96",
+        "type": "one_word"
+    },
       {
         "question": "383 + 875",
         "type": "one_word",
@@ -4061,6 +4287,31 @@
         "type": "one_word",
         "answer": "799"
       },
+         {
+        "question": "What is 10 * 11?",
+        "answer": "110",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 8 * 4?",
+        "answer": "32",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 6 * 8?",
+        "answer": "48",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 10 * 9?",
+        "answer": "90",
+        "type": "one_word"
+    },
+    {
+        "question": "What is 14 * 6?",
+        "answer": "84",
+        "type": "one_word"
+    }
       {
         "question": "746 + 714",
         "type": "one_word",
