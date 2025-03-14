@@ -137,9 +137,7 @@ async def start(ctx, category: str, subcategory: str):
                 if msg.content.lower() == q["answer"].lower():
                     score += 1
                 elif msg.content.lower() == "end":
-                    ctx.send(f"✅ Re-attempt finished! Your score this time: {score} (This does not affect your recorded score)")
                     break
-                    return
 
         except:
             await ctx.send("⏳ Time's up! Moving to the next question.")
