@@ -19,10 +19,18 @@ QUIZ_ATTEMPTS_FILE = "quiz_attempts.json"
 
 # Load quiz attempts
 def load_quiz_attempts():
+    """Load quiz attempts from file, ensuring it's not empty or missing."""
+    if not os.path.exists(QUIZ_ATTEMPTS_FILE):
+        return {}  # Return an empty dictionary if file doesn't exist
+
     try:
-        with open(QUIZ_ATTEMPTS_FILE, "r") as f:
-            return json.load(f)
-    except (FileNotFoundError, json.JSONDecodeError):
+        with open(QUIZ_ATTEMPTS_FILE, "r", encoding="utf-8") as file:
+            data = json.load(file)
+            if isinstance(data, dict):  # Ensure it's a dictionary
+                return data
+            else:
+                return {}  # Return empty dictionary if file is invalid
+    except (json.JSONDecodeError, IOError):
         return {}
 
 # Save quiz attempts
